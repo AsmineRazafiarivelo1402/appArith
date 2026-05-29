@@ -18,10 +18,10 @@ class ArithServiceTest {
   @Test
   void addServiceTest_PositiveNumbers_ReturnsSum() {
 
-    int a = 5;
-    int b = 10;
+    Long a = 5L;
+    Long b = 10L;
 
-    int result = arithService.add(a, b);
+    Long result = arithService.add(a, b);
 
     assertEquals(15, result);
   }
@@ -31,16 +31,16 @@ class ArithServiceTest {
     assertThrows(
         RuntimeException.class,
         () -> {
-          arithService.add(-5, 10);
+          arithService.add(-5L, 10L);
         });
   }
 
   @Test
   void minus_service_test_ok() {
-    int a = 5;
-    int b = 3;
+    Long a = 5L;
+    Long b = 3L;
 
-    int result = arithService.minus(a, b);
+    Long result = arithService.minus(a, b);
     assertEquals(2, result);
   }
 
@@ -49,7 +49,7 @@ class ArithServiceTest {
     assertThrows(
         RuntimeException.class,
         () -> {
-          arithService.minus(3, 5);
+          arithService.minus(3L, 5L);
         });
   }
 
@@ -58,7 +58,7 @@ class ArithServiceTest {
     assertThrows(
         RuntimeException.class,
         () -> {
-          arithService.minus(-5, -3);
+          arithService.minus(-5L, -3L);
         });
   }
 
@@ -67,7 +67,7 @@ class ArithServiceTest {
     assertThrows(
         RuntimeException.class,
         () -> {
-          arithService.minus(-2, -3);
+          arithService.minus(-2L, -3L);
         });
   }
 
@@ -76,16 +76,16 @@ class ArithServiceTest {
     assertThrows(
         RuntimeException.class,
         () -> {
-          arithService.minus(-2, -3);
+          arithService.minus(-2L, -3L);
         });
   }
 
   @Test
   void multiply_service_test_OK() {
-    int a = 5;
-    int b = 3;
+    Long a = 5L;
+    Long b = 3L;
 
-    int result = arithService.multiply(a, b);
+    Long result = arithService.multiply(a, b);
     assertEquals(15, result);
   }
 
@@ -94,17 +94,17 @@ class ArithServiceTest {
     assertThrows(
         RuntimeException.class,
         () -> {
-          arithService.divide(-2, -3);
+          arithService.divide(-2L, -3L);
         });
   }
 
   @Test
   void divide_service_test_OK() {
-    int a = 15;
-    int b = 3;
+    Long a = 15L;
+    Long b = 3L;
 
-    int result = arithService.divide(a, b);
-    assertEquals(5, result);
+    Long result = (long) arithService.divide(a, b);
+    assertEquals(5L, result);
   }
 
   @Test
@@ -112,7 +112,7 @@ class ArithServiceTest {
     assertThrows(
         RuntimeException.class,
         () -> {
-          arithService.divide(-1, 3);
+          arithService.divide(-1L, 3L);
         });
   }
 }
