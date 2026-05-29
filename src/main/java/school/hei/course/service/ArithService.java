@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 @Service
 public class ArithService {
-  public int add(int a, int b) {
+  public Long add(Long a, Long b) {
     if (a >= 0 && b >= 0) {
       return a + b;
     } else {
@@ -14,7 +14,7 @@ public class ArithService {
     }
   }
 
-  public int minus(int a, int b) {
+  public Long minus(Long a, Long b) {
     if (a < b && b > 0) {
       throw new RuntimeException("a should be greater than b");
     } else if (a < b && b < 0) {
@@ -26,7 +26,7 @@ public class ArithService {
     }
   }
 
-  public int multiply(int a, int b) {
+  public Long multiply(Long a, Long b) {
     if (a < 0 && b < 0) {
       throw new RuntimeException("a and b should be positive");
     } else {
@@ -34,7 +34,7 @@ public class ArithService {
     }
   }
 
-  public int divide(int a, int b) {
+  public Long divide(Long a, Long b) {
     if (a < 0 && b < 0) {
       throw new RuntimeException("a and b should be positive");
     }

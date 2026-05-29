@@ -13,22 +13,22 @@ public class ArithController {
   //    avec 4 endpoints : /add, /minus, (/soustrac), /multiply, /divide
 
   @GetMapping("/add")
-  public int add(int a, int b) {
+  public Long add(Long a, Long b) {
     return arithService.add(a, b);
   }
 
   @GetMapping("/minus")
-  public int minus(int a, int b) {
+  public Long minus(Long a, Long b) {
     return arithService.minus(a, b);
   }
 
   @GetMapping("/multiply")
-  public int multiply(int a, int b) {
+  public Long multiply(Long a, Long b) {
     return arithService.multiply(a, b);
   }
 
   @GetMapping("/divide")
-  public int divide(int a, int b) {
-    return arithService.multiply(a, b);
+  public Long divide(Long a, Long b) {
+    return arithService.divide(a, b);
   }
 }
