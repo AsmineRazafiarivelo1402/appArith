@@ -16,7 +16,7 @@ public class ArithValidator {
       throw new RuntimeException("a should be greater than b");
     } else if (a < b && b < 0) {
       throw new RuntimeException("a and b should be positive");
-    } else if (a < 0 && b < 0) {
+    } else if (a < 0 || b < 0) {
       throw new RuntimeException("a and b should be positive");
     }
   }

@@ -1,6 +1,9 @@
 package school.hei.course.endpoint.arithEndpoint;
 
+import java.util.Map;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import school.hei.course.service.ArithService;
@@ -10,25 +13,43 @@ import school.hei.course.service.ArithService;
 public class ArithController {
   private final ArithService arithService;
 
-  //    avec 4 endpoints : /add, /minus, (/soustrac), /multiply, /divide
-
   @GetMapping("/add")
-  public Long add(Long a, Long b) {
-    return arithService.add(a, b);
+  public ResponseEntity<?> add(Long a, Long b) {
+    try {
+      Long result = arithService.add(a, b);
+      return ResponseEntity.ok(result);
+    } catch (RuntimeException e) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", e.getMessage()));
+    }
   }
 
   @GetMapping("/minus")
-  public Long minus(Long a, Long b) {
-    return arithService.minus(a, b);
+  public ResponseEntity<?> minus(Long a, Long b) {
+    try {
+      Long result = arithService.minus(a, b);
+      return ResponseEntity.ok(result);
+    } catch (RuntimeException e) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", e.getMessage()));
+    }
   }
 
   @GetMapping("/multiply")
-  public Long multiply(Long a, Long b) {
-    return arithService.multiply(a, b);
+  public ResponseEntity<?> multiply(Long a, Long b) {
+    try {
+      Long result = arithService.multiply(a, b);
+      return ResponseEntity.ok(result);
+    } catch (RuntimeException e) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", e.getMessage()));
+    }
   }
 
   @GetMapping("/divide")
-  public Long divide(Long a, Long b) {
-    return arithService.divide(a, b);
+  public ResponseEntity<?> divide(Long a, Long b) {
+    try {
+      Long result = arithService.divide(a, b);
+      return ResponseEntity.ok(result);
+    } catch (RuntimeException e) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", e.getMessage()));
+    }
   }
 }
