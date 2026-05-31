@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import school.hei.course.service.ArithService;
+import school.hei.course.validator.ArithValidator;
 
 class ArithServiceTest {
 
@@ -12,7 +13,8 @@ class ArithServiceTest {
 
   @BeforeEach
   void setUp() {
-    arithService = new ArithService();
+    ArithValidator validator = new ArithValidator();
+    arithService = new ArithService(validator);
   }
 
   @Test
